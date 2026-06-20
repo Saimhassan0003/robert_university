@@ -643,8 +643,7 @@ body {
     display: -webkit-box !important;
     display: -webkit-flex !important;
     display: flex !important;
-    -webkit-flex-direction: column !important;
-    flex-direction: column !important;
+    flex-wrap: wrap !important;
   }
 
   /* Fix fonts on Android */
