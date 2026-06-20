@@ -2,14 +2,43 @@
    RCU OFFLINE FIXES — Mobile Responsiveness & Icon Corrections
    ============================================================ */
 
+/* ══════════════════════════════════════════════
+   BUG FIX: SCROLLING — must come first, highest specificity
+   ══════════════════════════════════════════════ */
+html {
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  height: auto !important;
+}
+
+body {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  height: auto !important;
+  min-height: 100vh;
+  position: static !important;
+}
+
+/* Kill any fixed/absolute wrappers that trap scroll */
+#page,
+.site,
+.ast-site-content-width,
+#content,
+.entry-content,
+.site-content,
+.ast-container,
+[data-elementor-type="wp-page"] {
+  overflow: visible !important;
+  height: auto !important;
+  position: static !important;
+}
+
 /* --- BASE RESET --- */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { overflow-x: hidden; }
-
-body {
-  overflow-x: hidden;
-  max-width: 100vw;
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
 }
 
 img, video, iframe, embed, object {
