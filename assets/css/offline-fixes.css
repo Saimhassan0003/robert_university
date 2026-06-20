@@ -1,0 +1,267 @@
+/* ============================================================
+   RCU OFFLINE FIXES — Mobile Responsiveness & Icon Corrections
+   ============================================================ */
+
+/* --- BASE RESET --- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { overflow-x: hidden; }
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- ENSURE EICONS LOAD FROM LOCAL FONTS --- */
+@font-face {
+  font-family: eicons;
+  src: url('../fonts/eicons.eot?5.25.0');
+  src: url('../fonts/eicons.eot?5.25.0#iefix') format('embedded-opentype'),
+       url('../fonts/eicons.woff2?5.25.0') format('woff2'),
+       url('../fonts/eicons.woff?5.25.0') format('woff'),
+       url('../fonts/eicons.ttf?5.25.0') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ElementsKit Icon";
+  src: url('../fonts/elementskit.woff?y24e1e') format('woff'),
+       url('../fonts/elementskit.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../webfonts/fa-solid-900.woff2') format('woff2'),
+       url('../webfonts/fa-solid-900.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../webfonts/fa-regular-400.woff2') format('woff2'),
+       url('../webfonts/fa-regular-400.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../webfonts/fa-brands-400.woff2') format('woff2'),
+       url('../webfonts/fa-brands-400.woff') format('woff');
+}
+
+/* --- MOBILE: VIEWPORT ≤ 768px --- */
+@media (max-width: 768px) {
+
+  /* Prevent horizontal scroll */
+  .elementor-section,
+  .elementor-column,
+  .elementor-container,
+  .elementor-widget-wrap,
+  .entry-content,
+  .site-content,
+  .container,
+  .ast-container {
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Stack elementor columns vertically */
+  .elementor-section .elementor-row,
+  .elementor-section .elementor-container {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+  }
+
+  .elementor-column,
+  .elementor-col-50,
+  .elementor-col-33,
+  .elementor-col-25,
+  .elementor-col-66,
+  .elementor-col-75,
+  .elementor-col-100 {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+
+  /* Header / nav bar */
+  .ast-header-break-point .main-header-bar,
+  .site-header,
+  #masthead {
+    position: relative !important;
+  }
+
+  /* Make sure hamburger toggle shows */
+  .ast-mobile-menu-trigger,
+  .ast-menu-toggle,
+  button.menu-toggle,
+  .hamburger,
+  #ast-mobile-header {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Hide desktop nav on mobile */
+  .main-navigation,
+  .ast-nav-menu,
+  .ekit-nav-menu > ul,
+  .elementskit-menu-container {
+    display: none !important;
+  }
+
+  .ast-header-break-point .main-navigation.toggled,
+  .ast-header-break-point .main-navigation[style*="display:block"],
+  .ast-header-break-point .main-navigation[style*="display: block"] {
+    display: block !important;
+  }
+
+  /* Typography */
+  h1 { font-size: clamp(1.5rem, 6vw, 2.5rem) !important; }
+  h2 { font-size: clamp(1.3rem, 5vw, 2rem) !important; }
+  h3 { font-size: clamp(1.1rem, 4vw, 1.5rem) !important; }
+  p, li, td, th { font-size: clamp(0.85rem, 3.5vw, 1rem) !important; }
+
+  /* Tables */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+
+  /* Images */
+  .elementor-image img,
+  .wp-post-image {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Forms */
+  input, select, textarea, button {
+    max-width: 100%;
+    font-size: 16px !important; /* prevents iOS zoom */
+  }
+
+  /* Footer */
+  .site-footer .elementor-row,
+  footer .elementor-row {
+    flex-direction: column !important;
+  }
+
+  footer .elementor-column {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+}
+
+/* --- TABLET: VIEWPORT 769px–1024px --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .elementor-column,
+  .elementor-col-25 {
+    width: 50% !important;
+    max-width: 50% !important;
+    flex: 0 0 50% !important;
+  }
+
+  .elementor-col-33 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+  }
+
+  h1 { font-size: clamp(1.8rem, 4vw, 2.8rem) !important; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2.2rem) !important; }
+}
+
+/* --- MOBILE NAVIGATION DRAWER --- */
+@media (max-width: 921px) {
+  /* Astra breakpoint = 921px */
+
+  .main-header-bar .ast-builder-menu-1,
+  .main-header-bar .ast-header-custom-item,
+  .site-header-primary-section-right {
+    display: none !important;
+  }
+
+  /* Show mobile header */
+  .ast-header-break-point #ast-mobile-header,
+  .ast-header-break-point .ast-mobile-header-content {
+    display: flex !important;
+  }
+
+  /* Ensure header logo is full-width on mobile */
+  .site-branding,
+  .ast-site-identity {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Mobile navigation panel */
+  .main-navigation.toggled .nav-menu,
+  .main-navigation.toggled > div > ul {
+    display: block !important;
+    width: 100%;
+    background: #fff;
+    padding: 10px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .main-navigation li {
+    display: block !important;
+    border-bottom: 1px solid #eee;
+  }
+
+  .main-navigation li a {
+    display: block;
+    padding: 12px 20px;
+  }
+
+  .main-navigation ul ul {
+    position: static !important;
+    display: none !important;
+    box-shadow: none !important;
+    padding-left: 20px;
+  }
+
+  .main-navigation li.focus > ul,
+  .main-navigation li:focus-within > ul {
+    display: block !important;
+  }
+}
+
+/* --- MISCELLANEOUS FIXES --- */
+
+/* Fix popup/overlay on mobile */
+.pum-overlay {
+  display: none !important;
+}
+
+/* Prevent elementor containers from breaking layout */
+.elementor-section.elementor-section-stretched {
+  max-width: 100vw !important;
+  left: 0 !important;
+  right: 0 !important;
+  position: relative !important;
+}
+
+/* Fix video placeholders on mobile */
+a[style*="aspect-ratio:16/9"] {
+  display: flex !important;
+  width: 100% !important;
+  min-height: 200px;
+}
