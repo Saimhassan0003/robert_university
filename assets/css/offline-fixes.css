@@ -522,3 +522,53 @@ body {
     text-align: center !important;
   }
 }
+
+/* --- ANDROID SPECIFIC FIXES --- */
+@media screen and (max-width: 768px) {
+
+  /* Fix for Samsung Internet browser */
+  body {
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+  }
+
+  /* Fix for Android Chrome tap highlight */
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* Fix for Android flex rendering */
+  .row,
+  .columns,
+  .grid,
+  .flex-row {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+  }
+
+  /* Fix fonts on Android */
+  body {
+    -webkit-font-smoothing: antialiased;
+    font-synthesis: none;
+  }
+
+  /* Minimum touch target for Android */
+  a, button, input, select, 
+  textarea, label, .menu-item {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  /* Fix images on Android Chrome */
+  img {
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    -webkit-backface-visibility: hidden;
+  }
+}
+
