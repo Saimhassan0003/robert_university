@@ -152,16 +152,39 @@ body {
     position: relative !important;
   }
 
-  /* === HIDE TOP BAR COLUMNS THAT ARE DESKTOP-ONLY === */
-  /* The top bar section (phone/email row) has a hidden-mobile column */
-  .elementor-hidden-mobile {
+  /* === TOP BAR (6ff38517) — phone, email, contact, testimonials, award === */
+  /* Keep it visible but stack the links for mobile */
+  .elementor-element-6ff38517 {
+    display: block !important;
+  }
+
+  /* The top bar has a desktop-only empty column — hide it */
+  .elementor-element-4b1bdd04 {
     display: none !important;
   }
 
-  /* === HEADER === */
-  /* The header row: logo left, hamburger right — keep as row */
-  .she-header-yes > .elementor-container,
-  header.elementor-section > .elementor-container {
+  /* Make the top bar icon-list wrap into two rows */
+  .elementor-element-246aebdc .elementor-icon-list-items {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 4px 12px !important;
+    padding: 6px 12px !important;
+  }
+
+  .elementor-element-246aebdc .elementor-icon-list-item {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+
+  .elementor-element-246aebdc .elementor-icon-list-text {
+    font-size: 11px !important;
+  }
+
+  /* === MAIN HEADER (55652731) — logo + hamburger === */
+  /* Keep the header container as a row so logo and hamburger stay side by side */
+  .elementor-element-55652731 > .elementor-container {
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     justify-content: space-between !important;
@@ -169,24 +192,30 @@ body {
     padding: 0 12px !important;
   }
 
-  /* Header columns stay auto width for logo + hamburger side-by-side */
-  .she-header-yes .elementor-column,
-  header.elementor-section .elementor-column {
+  /* Header columns — auto width, not 100% */
+  .elementor-element-55652731 .elementor-column {
     width: auto !important;
     flex: 0 1 auto !important;
-    padding: 0 !important;
+    padding: 4px 8px !important;
+    max-width: 100% !important;
   }
 
   /* Logo image sizing */
-  header .elementor-widget-image img {
-    max-width: 140px !important;
+  .elementor-element-55652731 .elementor-widget-image img {
+    max-width: 160px !important;
     height: auto !important;
+    width: auto !important;
   }
 
-  /* === HERO SLIDER HIDE === */
-  /* The top decorative top-bar slider is hidden on mobile as shown in screenshot */
-  .elementor-element-6ff38517 {
-    display: none !important;
+  /* Hamburger icon — ensure visible */
+  .elementskit-menu-hamburger {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
   }
 
   /* === ABOUT SECTION & GENERAL CONTENT === */
